@@ -1,0 +1,7 @@
+{
+  "type": "sqljs",
+  "location": "data",
+  "entities": ["dist/**/*.entity.js"],
+  "synchronize": true,
+  "logging": true
+}

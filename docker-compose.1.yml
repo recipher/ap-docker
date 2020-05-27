@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:    
+  db:
+    image: postgres:12.2
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  services:
+    image: ap-docker-services:v1
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - db
+
+  app:
+    image: ap-docker-app:v1
+    environment:
+      API_HOST: http://services:4200
+    ports:
+      - 3000:3000
+    depends_on:
+      - services  
+      
+volumes:
+  db:
