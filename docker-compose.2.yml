@@ -13,14 +13,23 @@ services:
       - db:/var/lib/postgresql/data
 
   services:
-    image: ap-docker-services:v2
+    # image: ap-docker-services:v2
+    build: 
+      context: ./services
+      dockerfile: 2.Dockerfile
+    environment:
+      DATABASE_USERNAME: admin
+      DATABASE_PASSWORD: secret
     depends_on:
       - db
 
   app:
-    image: ap-docker-app:v2
+    # image: ap-docker-services:v2
+    build: 
+      context: ./app
+      dockerfile: 2.Dockerfile
     ports:
-      - 3000:80
+      - 3000:3000
     depends_on:
       - services  
       

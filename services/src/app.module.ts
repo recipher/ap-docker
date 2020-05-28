@@ -10,8 +10,7 @@ import { ConfigurationService } from './configuration/configuration.service';
   imports: [
     TypeOrmModule.forRootAsync({
       inject: [ ConfigurationService ],
-      useFactory: (config: ConfigurationService) =>
-        require(`../config/db/${config.get('node:env')}`),
+      useFactory: (config: ConfigurationService) => config.get('database'),
     }),
     MessagesModule, 
     ConfigurationModule,

@@ -1,1 +1,8 @@
-{}
+{
+  "database": {
+    "type": "postgres",
+    "host": "db",
+    "port": 5432,
+    "database": "postgres"
+  }
+}

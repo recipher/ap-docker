@@ -13,14 +13,21 @@ services:
       - db:/var/lib/postgresql/data
 
   services:
-    image: ap-docker-services:v1
+    # image: ap-docker-services:v1
+    build: 
+      context: ./services
+      dockerfile: 1.Dockerfile
     environment:
-      NODE_ENV: production
+      DATABASE_USERNAME: admin
+      DATABASE_PASSWORD: secret
     depends_on:
       - db
 
   app:
-    image: ap-docker-app:v1
+    # image: ap-docker-services:v1
+    build: 
+      context: ./app
+      dockerfile: 1.Dockerfile
     environment:
       API_HOST: http://services:4200
     ports:

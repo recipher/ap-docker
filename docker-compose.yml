@@ -17,6 +17,8 @@ services:
       context: ./services
     environment:
       NODE_ENV: production
+      DATABASE_USERNAME: admin
+      DATABASE_PASSWORD: secret
     depends_on:
       - db
 

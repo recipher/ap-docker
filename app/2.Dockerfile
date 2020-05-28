@@ -5,6 +5,8 @@ COPY package* yarn.lock ./
 RUN yarn install --production
 COPY public ./public
 COPY src ./src
+COPY config ./config
+COPY .babelrc .
 RUN yarn build
 
 FROM nginx:alpine
