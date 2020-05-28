@@ -14,15 +14,15 @@ const proxy = host => {
 
 const app = express();
 
-app.use('/', express.static(path.join(__dirname, 'build')));
-app.use('/dist', express.static(path.join(__dirname, 'build')));
+app.use('/', express.static(path.join(__dirname, 'dist')));
+app.use('/dist', express.static(path.join(__dirname, 'dist')));
 
 const apiHost = process.env.API_HOST || 'http://localhost:4200';
 
 app.use('/api', proxy(apiHost));
 
 router.get('*', (req, res) => {
-  const route = path.join(__dirname, 'build', 'index.html');
+  const route = path.join(__dirname, 'dist', 'index.html');
   res.sendFile(route);
 });
 

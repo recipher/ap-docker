@@ -74,7 +74,7 @@ module.exports = () => {
           }),
           new CopyWebpackPlugin({ 
             patterns: [
-              { from: 'public', to: 'build' }
+              { from: 'public', to: 'dist' }
             ]
           }),
           new webpack.HotModuleReplacementPlugin(),
@@ -82,7 +82,7 @@ module.exports = () => {
         output: {
           filename: '[name].bundle.js',
           chunkFilename: '[name].chunk.bundle.js',
-          path: path.resolve(__dirname, '..', 'build'),
+          path: path.resolve(__dirname, '..', 'dist'),
           publicPath: '/',
         }
     }

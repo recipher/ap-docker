@@ -53,7 +53,7 @@
     "@testing-library/user-event": "^7.1.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --config config/webpack.base.config.js --open --hot",
+    "start": "webpack-dev-server --host 0.0.0.0 --mode development --config config/webpack.base.config.js --open --hot",
     "build": "webpack --mode production --config config/webpack.production.config.js --quiet",
     "serve": "node serve",
     "lint": "eslint --debug src/",
